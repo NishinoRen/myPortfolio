@@ -1,0 +1,95 @@
+@use '../setting' as s;
+@use '../mixin' as m;
+
+.service-sec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(s.$imgDir + "bg-img.jpg");
+    padding-bottom: 120px;
+}
+
+.service-req{
+
+    &__txt{
+        font-size: 24px;
+        position: relative;
+
+        &:not(:first-child){
+            margin-top: 24px;
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            height: 0.7em;
+            width: 1.5em;
+            top: 0.3em;
+            left: -2em;
+            border-left:5px solid red;
+            border-bottom:5px solid red;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.service-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-top: 80px;
+
+    &__img{
+        width: 47%;
+        height: 350px;
+        position: relative;
+
+        & img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            box-shadow: 0 0 20px gray;
+        }
+
+        &.first:after{
+            @include m.serv-head("ヒアリング");
+        }
+        &.first:before{
+            @include m.serv-sub-head("Consulting");
+        }
+
+        &.second:after{
+            @include m.serv-head("デザイン");
+        }
+        &.second:before{
+            @include m.serv-sub-head("Design");
+        }
+
+        &.third:after{
+            @include m.serv-head("コーディング", white);
+        }
+        &.third:before{
+            @include m.serv-sub-head("Coding", rgba(255,255,255,0.3));
+        }
+
+        &.fourth:after{
+            @include m.serv-head("アフターフォロー", white);
+        }
+        &.fourth:before{
+            @include m.serv-sub-head("FollowUp", rgba(255,255,255,0.3));
+        }
+
+
+    }
+
+    &__txt{
+        width: 40%;
+        font-size: 18px;
+
+        & span{
+            color: red;
+        }
+    }
+}

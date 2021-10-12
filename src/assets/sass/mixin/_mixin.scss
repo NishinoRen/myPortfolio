@@ -1,0 +1,131 @@
+@use '../setting' as s;
+// 矢印
+// ---------------------
+@mixin arrow(
+	$color: var(--baseFontColor),
+	$rotate: 45deg,
+	$w: 6px,
+	$h: 6px,
+	$top: 0,
+	$left: 0,
+	$thickness: 3px
+) {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: $top;
+		left: $left;
+		width: $w;
+		height: $h;
+		border-left: $thickness solid $color;
+		border-bottom: $thickness solid $color;
+		transform: rotate($rotate);
+	}
+}
+
+// 隠しコンテンツ
+// ---------------------
+@mixin visuallyHidden() {
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	margin: -1px;
+}
+
+// アスペクト比計算
+// ---------------------
+@mixin aspectRatio($width: 16, $height: 9) {
+	position: relative;
+	padding-top: percentage($height / $width);
+
+	> * {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+// z-index
+// ---------------------
+$layer: (
+	modal: 100,
+	header: 30,
+	menu: 30,
+	default: 1,
+);
+
+@mixin zIndex($key) {
+	z-index: map-get($layer, $key);
+}
+
+// 背景グラデーション
+// ---------------------
+@mixin bgGradient($degree: 90deg, $start: #000, $end: #c14bd0) {
+	background-image: linear-gradient($degree, $start, $end);
+}
+
+// マーカーのような下線
+// ---------------------
+@mixin marker($color: #000, $alpha: 0.8) {
+	display: inline;
+	background: linear-gradient(transparent 70%, rgba($color, $alpha) 0%);
+}
+
+@mixin oval($content: "デフォルト" , $bgcolor: red){
+	position: relative;
+
+	&::after{
+		content: $content;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #fff;
+            background-color: $bgcolor;
+            padding: 0 8px;
+            border-radius: 16px;
+	}
+}
+
+@mixin circle($dia: 8px, $color: red){
+	visibility: visible;
+	opacity: 0.5;
+    width: $dia;
+    height: $dia;
+    border-radius: 50%;
+    background-color: $color;
+}
+
+@mixin serv-head($name ,$color: black){
+	content: $name;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 48px;
+	font-weight: bold;
+	color: $color;
+}
+
+@mixin serv-sub-head($name , $color: rgba(0,0,0,0.1)){
+	content: $name;
+	position: absolute;
+	top: -0.2em;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 112px;
+	font-family: 'Ephesis', cursive;
+	font-weight: bold;
+	color: $color;
+}

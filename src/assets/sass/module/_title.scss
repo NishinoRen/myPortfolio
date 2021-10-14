@@ -1,0 +1,44 @@
+.sec-ttl{
+	font-weight: bold;
+	font-size: 96px;
+	font-family: 'Ephesis', cursive;
+	color: red;
+	margin: 80px;
+	position: relative;
+	display: inline-block;
+
+	&::after{
+		content: "";
+		position: absolute;
+		display: block;
+		height: 3px;
+		width: 0;
+		bottom: 30%;
+		left: 50%;
+		transform: translateX(-50%);
+		background: linear-gradient(to bottom,rgb(252, 252, 147),red);
+		transition: 2s ease-in-out;
+	}
+
+	&.is-animated::after{
+		width: 100%;
+	}
+}
+
+
+.mv-ttl{
+	font-weight: bold;
+	font-size: 96px;
+
+}
+
+.news-ttl{
+	font-weight: bold;
+	font-size: 32px;
+}
+
+.header-ttl{
+	font-size: 56px;
+    font-family: 'Ephesis', cursive;
+	transition: .2s;
+}

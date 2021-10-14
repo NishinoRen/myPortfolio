@@ -1,0 +1,139 @@
+@use "../setting/" as s;
+
+.about-sec{
+    text-align: center;
+    background: url(s.$imgDir + "about.jpg");
+    background-size: cover;
+}
+
+.about-inner{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding-bottom: 120px;
+}
+
+.myProfile{
+    text-align: center;
+    width: 60%;
+    color: #fff;
+
+    & img{
+        width: 30%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0px 0px 20px white;
+    }
+
+    &__name{
+        font-weight: bold;
+        font-size: 40px;
+        margin-top: 56px;
+    }
+}
+
+.cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 80px 80px 0;
+    height: 600px;
+}
+
+.card-inner{
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    position: relative;
+    transition: 1.5s ease-in-out;
+    transform-style: preserve-3d;
+
+    &:hover{
+        transform: rotateY(180deg);
+    }
+}
+.side {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    color: #fff;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    font-weight: bold;
+    font-size: 24px;
+}
+.card-content {
+    transform: translatez(70px) scale(0.8);
+}
+.front {
+    z-index: 2;
+    background-size: cover;
+    background-image: url(s.$imgDir + "card-front.jpg");
+}
+.back {
+    transform: rotateY(180deg);
+    z-index: 0;
+    background-size: cover;
+    background-image: url(s.$imgDir + "card-back.jpg");
+}
+
+.myNews{
+    background-color: rgba(255,255,255,0.3);
+    width: 40%;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px;
+
+    & ul{
+        width: 40%;
+    }
+}
+
+.news{
+    background-color: rgba(255,255,255,0.5);
+    margin-top: 16px;
+    text-align: left;
+    align-items: center;
+    padding: 0 8px;
+    border-radius: 8px;
+    position: relative;
+
+    &__date{
+        font-weight: bold;
+    }
+
+    &:first-child::before{
+        content: "";
+        position: absolute;
+        top: 8px;
+        right: 100px;
+        border-top: 4px solid transparent;
+        border-right: 20px solid red;
+        border-left: 20px solid transparent;
+        border-bottom: 4px solid transparent;
+
+    }
+
+    &:first-child::after{
+        content: "New!!";
+        position: absolute;
+        top: -10px;
+        right: 30px;
+        font-weight: bold;
+        background-color: red;
+        color: #fff;
+        border-radius: 32px;
+        padding: 4px 16px;
+    }
+}
+
+.more{
+    margin: 40px 0;
+    transition: .2s;
+}

@@ -11,7 +11,7 @@
         cursor: pointer;
     }
 
-    &:focus{
+    &:active{
         transform: translate(5px,5px);
         box-shadow: none;
     }

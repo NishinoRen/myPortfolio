@@ -61,8 +61,10 @@
 				</nav>
 			</header>
 
-			<p class="mv__copy">クライアントに<br>寄り添って</p>
-			<p class="mv__copy-sub">Helping from<br>the same perspective</p>
+			<p class="mv__copy mv-js">クライアントに</p>
+			<p class="mv__copy mv-js2">寄り添って</p>
+			<p class="mv__copy-sub mv-js">Helping from</p>
+			<p class="mv__copy-sub mv-js2">the same perspective</p>
 
 			<p class="rain scroll-1">Scroll</p>
 			<p class="rain scroll-2"></p>
@@ -310,9 +312,17 @@
 
 					<ul>
 
+						<li class="news news-more">
+							<p class="news__date">2021/10/10</p>
+							<p class="news__txt">ZeroPlus卒業</p>
+						</li>
 						<li class="news">
 							<p class="news__date">2021/10/10</p>
 							<p class="news__txt">ZeroPlus卒業</p>
+						</li>
+						<li class="news news-more">
+							<p class="news__date">2021/05/??</p>
+							<p class="news__txt">TOEICで735点を取る</p>
 						</li>
 						<li class="news">
 							<p class="news__date">2021/04/05</p>
@@ -333,11 +343,19 @@
 
 					</ul>
 
-					<button class="more btn">さらに読み込む</button>
+					<button type="button" class="more btn">さらに読み込む</button>
+
 					
 				</aside>
 			</div>
 			
+			<div class="balloons">
+				<div></div><div></div><div></div><div></div><div></div>
+				<div></div><div></div><div></div><div></div><div></div>
+				<div></div><div></div><div></div><div></div><div></div>
+				<div></div><div></div><div></div><div></div><div></div>
+				<div></div><div></div><div></div><div></div><div></div>
+			</div>
 		</section>
 
 		
@@ -345,14 +363,14 @@
 
 			<h1 class="sec-ttl">Contact</h1>
 
-			<form action="#" method="post">
+			<form action="mailto:ren20021122@gmail.com" method="post">
 				
 				
 				<div class="contact-item">
 					
 					<p class="contact-item__header need">お名前/Name</p>
 					
-					<input type="text" name="name" size="38">
+					<input type="text" name="name" size="38" required>
 					
 				</div>
 				
@@ -360,7 +378,7 @@
 					
 					<p class="contact-item__header need">メールアドレス/Email</p>
 					
-					<input type="email" name="mail" size="38">
+					<input type="email" name="mail" size="38" required>
 					
 				</div>
 				
@@ -368,7 +386,7 @@
 					
 					<p class="contact-item__header need">電話番号/Phone number</p>
 					
-					<input type="tel" name="tel" pattern="[\d{2,4}-\d{2,4}-\d{3,4}" size="38">
+					<input type="tel" name="tel" pattern="[\d{2,4}-\d{2,4}-\d{3,4}" size="38" required>
 					
 				</div>
 

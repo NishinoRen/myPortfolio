@@ -25,41 +25,61 @@ $(function () {
   /*-------- 画面幅が変わったときに、更新 --------*/
 
 });
-$(function () {
-  $(window).ready(function () {
-    var element = $(".mv__copy-sub");
-    element.each(function () {
-      var text = $(this).text();
-      var textbox = "";
-      text.split('').forEach(function (t, i) {
-        if (t !== " ") {
-          if (i < 10) {
-            textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
-          } else {
-            var n = i / 10;
-            textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
-          }
+$(window).on('load', function () {
+  var element = $(".mv-js");
+  element.each(function () {
+    var text = $(this).text();
+    var textbox = "";
+    text.split('').forEach(function (t, i) {
+      if (t !== " ") {
+        if (i < 10) {
+          textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
         } else {
-          textbox += t;
+          var n = i / 10;
+          textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
         }
-      });
-      $(this).html(textbox);
-    });
-    $(".mv__copy").addClass('fadeIn');
-    $(element).addClass('js-appear');
-  });
-  $(window).scroll(function () {
-    $(".rain").each(function () {
-      var scroll = $(window).scrollTop();
-      var elemPos = $(this).offset().top;
-      var windowHeight = $(window).height();
-
-      if (scroll > elemPos - windowHeight + 300) {
-        $(this).addClass('js-active');
       } else {
-        $(this).removeClass('js-active');
+        textbox += t;
       }
     });
+    $(this).html(textbox);
+  });
+  $(element).addClass('appeartext');
+});
+$(window).on('load', function () {
+  var element = $(".mv-js2");
+  element.each(function () {
+    var text = $(this).text();
+    var textbox = "";
+    text.split('').forEach(function (t, i) {
+      if (t !== " ") {
+        if (i < 10) {
+          textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
+        } else {
+          var n = i / 10;
+          textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
+        }
+      } else {
+        textbox += t;
+      }
+    });
+    $(this).html(textbox);
+  });
+  setTimeout(function () {
+    $(element).addClass('appeartext');
+  }, 800);
+});
+$(window).scroll(function () {
+  $(".rain").each(function () {
+    var scroll = $(window).scrollTop();
+    var elemPos = $(this).offset().top;
+    var windowHeight = $(window).height();
+
+    if (scroll > elemPos - windowHeight + 150) {
+      $(this).addClass('js-active');
+    } else {
+      $(this).removeClass('js-active');
+    }
   });
 });
 var width = $('.carousel-area__item').outerWidth(true);
@@ -102,4 +122,7 @@ $('.js-btn-back').click(function () {
     slideCurrent--;
     changeslide(); // そうでなければスライド番号を減らして（前のスライドに切り替え）関数実行
   }
+});
+$('.more.btn').click(function () {
+  $('.news').removeClass('news-more');
 });

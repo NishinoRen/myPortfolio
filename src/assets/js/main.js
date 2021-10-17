@@ -21,18 +21,61 @@ $(function () {
 	/*-------- 画面幅が変わったときに、更新 --------*/
 });
 
-$(function(){
-	$(window).scroll(function(){
-		$(".rain").each(function(){
-			let scroll = $(window).scrollTop();
-			let elemPos = $(this).offset().top;
-			let windowHeight = $(window).height();
-			if (scroll > elemPos - windowHeight + 300){
-				$(this).addClass('js-active');
-			}else{
-				$(this).removeClass('js-active');
+$(window).on('load', function () {
+	let element = $(".mv-js");
+	element.each(function () {
+	let text = $(this).text();
+	let textbox = "";
+	text.split('').forEach(function (t, i) {
+		if (t !== " ") {
+			if (i < 10) {
+				textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
+			} else {
+				let n = i / 10;
+				textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
 			}
-		});
+		} else {
+			textbox += t;
+		}
+	});
+	$(this).html(textbox);
+	});
+	$(element).addClass('appeartext');
+});
+$(window).on('load', function () {
+	let element = $(".mv-js2");
+	element.each(function () {
+	let text = $(this).text();
+	let textbox = "";
+	text.split('').forEach(function (t, i) {
+		if (t !== " ") {
+			if (i < 10) {
+				textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
+			} else {
+				let n = i / 10;
+				textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
+			}
+		} else {
+			textbox += t;
+		}
+	});
+	$(this).html(textbox);
+	});
+	setTimeout(function(){
+		$(element).addClass('appeartext');
+	},800);
+});
+
+$(window).scroll(function(){
+	$(".rain").each(function(){
+		let scroll = $(window).scrollTop();
+		let elemPos = $(this).offset().top;
+		let windowHeight = $(window).height();
+		if (scroll > elemPos - windowHeight + 150){
+			$(this).addClass('js-active');
+		}else{
+			$(this).removeClass('js-active');
+		}
 	});
 });
 
@@ -71,4 +114,8 @@ $('.js-btn-back').click(function () {
     	slideCurrent--;
       	changeslide(); // そうでなければスライド番号を減らして（前のスライドに切り替え）関数実行
     }
+});
+
+$('.more.btn').click(function(){
+	$('.news').removeClass('news-more');
 });
